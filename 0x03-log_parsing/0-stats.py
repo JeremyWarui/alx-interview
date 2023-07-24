@@ -1,5 +1,15 @@
 #!/usr/bin/python3
-"""script that reads stdin line by line and computes metrics
+"""This module reads stdin line by line and computes metrics
+Attributes:
+    global variables: total_size, status_codes, line_cnt
+        total_size: size of the file
+        status_codes: dictionary with all status codes and count
+        line_cnt: no of lines
+    print_stats: function that prints the file size and the
+                status code and count
+The module uses try, except block that loops through the
+stdin line and checks the status code of each GET request
+Exists if interrupted by keyboard and prints the statistics
 """
 import sys
 
