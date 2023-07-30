@@ -27,7 +27,6 @@ if __name__ == "__main__":
         }
     line_cnt = 0
 
-
     def print_stats():
         """print the statistics of the metrix on status codes"""
         # total_size
@@ -36,7 +35,6 @@ if __name__ == "__main__":
         for code in sorted(status_codes.keys()):
             if status_codes[code]:
                 print("{}: {}".format(code, status_codes[code]))
-
 
     try:
         """split the inputs in stdin into a list"""
