@@ -30,7 +30,8 @@ line_cnt = 0
 
 def print_stats():
     """print the statistics of the metrix on status codes"""
-    global total_size, status_codes
+    # total_size
+    # status_codes
     print("File size: {}".format(total_size))
     for code in sorted(status_codes.items()):
         if status_codes[code] > 0:

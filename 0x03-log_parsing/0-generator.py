@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+main file
+"""
 import random
 import sys
 from time import sleep
