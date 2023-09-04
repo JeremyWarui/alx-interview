@@ -4,7 +4,7 @@ const request = require('request');
 
 const movieID = process.argv[2];
 
-const url = `https://swapi-api.alx-tools.com/api/films/${movieID}`;
+const url = `https://swapi-api.alx-tools.com/api/films/${movieID}/`;
 
 let listOfActors;
 
@@ -21,12 +21,11 @@ async function displayCharacters () {
   let movie = await requestPromise(url);
   movie = JSON.parse(movie);
   listOfActors = movie.characters;
-  console.log(listOfActors);
 
   for (const actor of listOfActors) {
     let character = await requestPromise(actor);
-    character = JSON.parse(character);
-    console.log(character.name);
+    character = JSON.parse(character).name;
+    console.log(character);
   }
 }
 
