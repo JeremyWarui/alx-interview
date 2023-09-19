@@ -15,15 +15,14 @@ def isWinner(x, nums):
 
     # function to generate list of primes upto a limit
     def sieve(limit):
-        # create a list of numbers from 2 to limit
-        numbers = list(range(2, limit + 1))
-        # loop through each number and check if i is prime
-        # and remove its multiples
-        for i in numbers:
-            if is_prime(i):
+        # create a set of numbers from 2 to limit
+        numbers = set(range(2, limit + 1))
+        # loop through each number checking if its prime
+        # and remove its multiples from the set
+        for i in range(2, int(limit ** 0.5) + 1):
+            if i in numbers:
                 for j in range(i * 2, limit + 1, i):
-                    if j in numbers:
-                        numbers.remove(j)
+                    numbers.discard(j)
         return numbers
 
     maria_wins = 0
