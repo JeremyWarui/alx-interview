@@ -16,22 +16,17 @@ def isWinner(x, nums):
     # function to generate list of primes upto a limit
     def sieve(limit):
         # create a set of numbers from 2 to limit
-        # numbers = set(range(2, limit + 1))
+        if limit < 0:
+            return set()
+        if limit == 1:
+            return set()
+        numbers = set(range(2, limit + 1))
         # loop through each number checking if its prime
         # and remove its multiples from the set
-        # for i in range(2, int(limit ** 0.5) + 1):
-        #    if i in numbers:
-        #        for j in range(i * 2, limit + 1, i):
-        #            numbers.discard(j)
-        if limit <= 0:
-            return []
-        else:
-            numbers = list(range(2, limit + 1))
-            for i in numbers:
-                if is_prime(i):
-                    for j in range(i * 2, limit + 1, i):
-                        if j in numbers:
-                            numbers.remove(j)
+        for i in range(2, int(limit ** 0.5) + 1):
+            if i in numbers:
+                for j in range(i * 2, limit + 1, i):
+                    numbers.discard(j)
         return numbers
 
     maria_wins = 0
@@ -49,19 +44,18 @@ def isWinner(x, nums):
         # loop until there are no primes left
         while primes:
             prime_max = max(primes)
+            primes = {p for p in primes
+                      if p % prime_max != 0 and p == prime_max}
             # remove the max prime num and its multiples
-            # new_primes = [m for m in primes if m % prime_max != 0 or
-            #              m == prime_max]
-            primes.remove(prime_max)
-            for q in primes:
-                if q % prime_max == 0 and q != prime_max:
-                    primes.remove(prime_max)
+            # primes.remove(prime_max)
+            # for q in primes:
+            #    if q % prime_max == 0 or q == prime_max:
+            #        primes.remove(q)
             # switch turns
             if turn == "Maria":
                 turn = "Ben"
             else:
                 turn = "Maria"
-            # primes = new_primes
         # if maria's turn ended last, then ben wins
         if turn == "Maria":
             ben_wins += 1
