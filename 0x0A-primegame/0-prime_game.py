@@ -51,14 +51,14 @@ def isWinner(x, nums):
             #              m == prime_max]
             primes.remove(prime_max)
             for q in primes:
-                if q % prime_max == 0:
+                if q % prime_max == 0 or q == prime_max:
                     primes.remove(prime_max)
             # switch turns
             if turn == "Maria":
                 turn = "Ben"
             else:
                 turn = "Maria"
-            #primes = new_primes
+            # primes = new_primes
         # if maria's turn ended last, then ben wins
         if turn == "Maria":
             ben_wins += 1
