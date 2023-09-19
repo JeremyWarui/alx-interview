@@ -23,12 +23,15 @@ def isWinner(x, nums):
         #    if i in numbers:
         #        for j in range(i * 2, limit + 1, i):
         #            numbers.discard(j)
-        numbers = list(range(2, limit + 1))
-        for i in numbers:
-            if is_prime(i):
-                for j in range(i * 2, limit + 1, i):
-                    if j in numbers:
-                        numbers.remove(j)
+        if limit <= 0:
+            return []
+        else:
+            numbers = list(range(2, limit + 1))
+            for i in numbers:
+                if is_prime(i):
+                    for j in range(i * 2, limit + 1, i):
+                        if j in numbers:
+                            numbers.remove(j)
         return numbers
 
     maria_wins = 0
@@ -51,7 +54,7 @@ def isWinner(x, nums):
             #              m == prime_max]
             primes.remove(prime_max)
             for q in primes:
-                if q % prime_max == 0 or q == prime_max:
+                if q % prime_max == 0 and q != prime_max:
                     primes.remove(prime_max)
             # switch turns
             if turn == "Maria":
