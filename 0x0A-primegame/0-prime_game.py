@@ -45,12 +45,7 @@ def isWinner(x, nums):
         while primes:
             prime_max = max(primes)
             primes = {p for p in primes
-                      if p % prime_max != 0}
-            # remove the max prime num and its multiples
-            # primes.remove(prime_max)
-            # for q in primes:
-            #    if q % prime_max == 0 or q == prime_max:
-            #        primes.remove(q)
+                      if p % prime_max != 0 or p == prime_max}
             # switch turns
             if turn == "Maria":
                 turn = "Ben"
