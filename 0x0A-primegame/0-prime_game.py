@@ -9,7 +9,9 @@ def isWinner(x, nums):
     ben_wins = 0
 
     for n in nums:
-        if n % 2 == 0:
+        if n == 0:
+            ben_wins += 1
+        elif n % 2 == 0:
             ben_wins += 1
         else:
             maria_wins += 1
