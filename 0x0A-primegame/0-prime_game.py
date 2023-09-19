@@ -45,7 +45,7 @@ def isWinner(x, nums):
         while primes:
             prime_max = max(primes)
             primes = {p for p in primes
-                      if p % prime_max != 0 and p == prime_max}
+                      if p % prime_max != 0}
             # remove the max prime num and its multiples
             # primes.remove(prime_max)
             # for q in primes:
