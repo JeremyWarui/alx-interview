@@ -11,6 +11,8 @@ from typing import List
 
 
 def makeChange(coins: List, total: int) -> int:
+    if total <= 0:
+        return 0
     coins_ls = [0] + [float("inf")] * total
 
     for coin in coins:
