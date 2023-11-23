@@ -25,10 +25,9 @@ def makeChange(coins, total):
             min_coins[i] = min(min_coins[i], min_coins[i - coin] + 1)
     if min_coins[total] == total + 1:
         return -1
-    else:
-        return min_coins[total]
+    return min_coins[total]
 
     # if min_coins[total] != float('inf') or min_coins[total] == (total + 1):
-        # return min_coins[total]
+    # return min_coins[total]
     # else:
     #     return -1
