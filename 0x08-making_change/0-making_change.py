@@ -20,9 +20,10 @@ def makeChange(coins, total):
     for i in range(1, total + 1):
         min_coins[i] = next_coin
         for coin in coins:
-            if (i - coin) < 0:
+            curr = i - coin
+            if curr < 0:
                 continue
-            min_coins[i] = min(min_coins[i], min_coins[i - coin] + 1)
+            min_coins[i] = min(min_coins[curr] + 1, min_coins[i])
     if min_coins[total] == total + 1:
         return -1
     return min_coins[total]
