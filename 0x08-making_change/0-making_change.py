@@ -11,6 +11,8 @@ def makeChange(coins, total):
 
     Returns: no of coins to meet the total
     """
+    if total <= 0:
+        return 0
     min_coins = [float('inf')] * (total + 1)
     min_coins[0] = 0
 
@@ -18,4 +20,7 @@ def makeChange(coins, total):
         for coin in coins:
             if i >= coin:
                 min_coins[i] = min(min_coins[i], min_coins[i - coin] + 1)
-    return min_coins[total] if min_coins[total] != float('inf') else -1
+    if min_coins[total] != float('inf') or min_coins[total] == (total + 1):
+        return min_coins[total]
+    else:
+        return -1
