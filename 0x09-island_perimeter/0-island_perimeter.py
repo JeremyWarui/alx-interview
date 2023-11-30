@@ -15,6 +15,9 @@ def island_perimeter(grid):
     Input: list of integers
     Returns: perimeter"""
 
+    if not grid or not grid[0]:
+        return 0
+
     perimeter = 0
     for i in range(len(grid)):
         for j in range(len(grid[i])):
