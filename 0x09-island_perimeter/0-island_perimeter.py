@@ -10,13 +10,12 @@ Each cell is a square with a side length of 1
 """
 
 
-def island_perimeteri(grid):
+def island_perimeter(grid):
     """island perimeter func
     Input: list of integers
     Returns: perimeter"""
 
     perimeter = 0
-
     for i in range(len(grid)):
         for j in range(len(grid[i])):
             if grid[i][j] == 1:
@@ -28,4 +27,5 @@ def island_perimeteri(grid):
                     perimeter += 1
                 if j == len(grid) - 1 or grid[i][j + 1] == 0:
                     perimeter += 1
+
     return perimeter
