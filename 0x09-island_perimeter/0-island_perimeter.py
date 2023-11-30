@@ -10,7 +10,11 @@ Each cell is a square with a side length of 1
 """
 
 
-def island_perimeter(grid):
+def island_perimeteri(grid):
+    """island perimeter func
+    Input: list of integers
+    Returns: perimeter"""
+
     perimeter = 0
 
     for i in range(len(grid)):
